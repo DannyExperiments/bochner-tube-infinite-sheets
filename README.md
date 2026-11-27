@@ -1,7 +1,7 @@
 # An infinitely sheeted envelope of holomorphy for a round Bochner tube at infinity
 
 [![Repository verification](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/verify.yml) · [![Replay verification](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/replay.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/replay.yml) · [![PDF build](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/pdf.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/pdf.yml)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24588786.svg)](https://doi.org/10.5281/zenodo.24588786)
+[![DOI](visualization/version-doi.svg)](https://doi.org/10.5281/zenodo.24588786)
 
 Both parts of Hazra’s Open Question 2.3 have negative answers. There is a domain in complex dimension two with a centered round disk tube type and infinitely many points of its envelope over each point of one projected circle.
 
