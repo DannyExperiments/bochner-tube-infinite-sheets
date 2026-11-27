@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Cite this version of the research release."
+type: software
+title: "An infinitely sheeted envelope of holomorphy for a round Bochner tube at infinity"
+authors:
+  - name: "DannyExperiments"
+version: "1.0.0"
+date-released: 2026-11-27
+doi: "10.5281/zenodo.24588786"
+url: "https://doi.org/10.5281/zenodo.24588786"
+repository-code: "https://github.com/DannyExperiments/bochner-tube-infinite-sheets"
+keywords:
+  - "envelope of holomorphy"
+  - "Bochner tube at infinity"
+  - "schlichtness"
+  - "Riemann domain"
+  - "holomorphic logarithm"
+  - "winding number"
+  - "several complex variables"

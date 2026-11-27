@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>An infinitely sheeted envelope of holomorphy for a round Bochner tube at infinity</title><style>
+*{box-sizing:border-box}body{margin:0;background:#101c30;color:#e9f2fc;font:16px/1.5 system-ui,sans-serif}main{max-width:880px;margin:auto;padding:clamp(16px,4vw,42px)}h1{line-height:1.15;font-size:clamp(26px,5vw,43px);margin:0 0 12px}p{max-width:68ch;color:#becce0}canvas{display:block;width:100%;aspect-ratio:1.55;background:#162945;border:1px solid #385272;border-radius:12px;touch-action:none}label{display:block;margin-top:1rem}output{margin-left:.7rem;color:#f3bf78}.row{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}button{color:#e9f2fc;background:#263e60;border:1px solid #7191ad;border-radius:8px;padding:.55rem .8rem}input{accent-color:#76e4d5}small{color:#becce0}
+</style><main><h1 id="headline"></h1><p>Each turn projects onto the same circle. The repeated phase points lie at distinct heights because their holomorphic logarithm values differ by 2πi.</p><canvas id="scene" aria-label="Perspective view of the mathematical construction"></canvas>
+<div class="row"><label><span id="slider-label"></span> <input id="parameter" type="range" min="5"><output id="value"></output></label></div>
+<p class="row"><button id="left" type="button">Rotate left</button><button id="right" type="button">Rotate right</button><button id="spin" type="button" aria-pressed="false">Play rotation</button></p><small id="axis"></small>
+</main><script>
+const cfg={min:0,max:359,start:15,title:'One projection, infinitely many lifts',label:'Projected phase',axis:'height = Im log P / (2π), up to a constant'}
+
+const canvas=document.querySelector('#scene'),ctx=canvas.getContext('2d');
+const slider=document.querySelector('#parameter'),value=document.querySelector('#value');
+slider.min=cfg.min;slider.max=cfg.max;slider.value=cfg.start;
+document.querySelector('#headline').textContent=cfg.title;
+document.querySelector('#slider-label').textContent=cfg.label;
+document.querySelector('#axis').textContent=cfg.axis;
+let azimuth=.7, dragging=false, previous=0, loop=null;
+const project=([x,y,z])=>{
+  const xRot=Math.cos(azimuth)*x-Math.sin(azimuth)*y;
+  const depth=Math.sin(azimuth)*x+Math.cos(azimuth)*y;
+  const lens=1/(1+depth*.15);
+  const scale=canvas.height*.245*lens;
+  return [canvas.width/2+scale*xRot,canvas.height/2-scale*(.87*z+.48*depth)];
+};
+function line(points,color,width){ctx.strokeStyle=color;ctx.lineWidth=width*devicePixelRatio;ctx.lineJoin='round';ctx.beginPath();points.forEach((point,k)=>{const [x,y]=project(point);if(k)ctx.lineTo(x,y);else ctx.moveTo(x,y);});ctx.stroke();}
+function dot(point,color){const [x,y]=project(point);ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,5*devicePixelRatio,0,2*Math.PI);ctx.fill();}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);const path=[];const shadows=[];const selected=[];
+for(let n=0;n<=360;n++){const t=6*Math.PI*n/360;const height=(t+Math.atan2(-.1*Math.sin(t),2+.1*Math.cos(t)))/(2*Math.PI);path.push([Math.cos(t),Math.sin(t),(height-1.5)*.7]);}
+for(let n=0;n<=120;n++){const t=2*Math.PI*n/120;shadows.push([Math.cos(t),Math.sin(t),-1.26]);}
+const phase=Number(slider.value)*Math.PI/180;
+for(let k=0;k<3;k++){const v=(phase+Math.atan2(-.1*Math.sin(phase),2+.1*Math.cos(phase)))/(2*Math.PI)+k;selected.push([Math.cos(phase),Math.sin(phase),(v-1.5)*.7]);}
+const floor=[Math.cos(phase),Math.sin(phase),-1.26];
+line(shadows,'#7792af',2);line([floor,...selected],'#f3bf78',2);line(path,'#76e4d5',4);dot(floor,'#f3bf78');selected.forEach(p=>dot(p,'#f3bf78'));
+value.value=(phase*180/Math.PI).toFixed(0)+'° · successive lifts differ by 2πi';}
+function resize(){const size=canvas.getBoundingClientRect();canvas.width=Math.round(size.width*devicePixelRatio);canvas.height=Math.round(size.height*devicePixelRatio);draw();}
+new ResizeObserver(resize).observe(canvas);
+slider.addEventListener('input',draw);
+document.querySelector('#left').onclick=()=>{azimuth-=.28;draw();};
+document.querySelector('#right').onclick=()=>{azimuth+=.28;draw();};
+document.querySelector('#spin').onclick=(event)=>{const button=event.currentTarget;if(loop){clearInterval(loop);loop=null;}else{loop=setInterval(()=>{azimuth+=.025;draw();},34);}button.textContent=loop?'Pause rotation':'Play rotation';button.setAttribute('aria-pressed',String(Boolean(loop)));};
+canvas.addEventListener('pointerdown',event=>{dragging=true;previous=event.clientX;canvas.setPointerCapture(event.pointerId);});
+canvas.addEventListener('pointermove',event=>{if(dragging){azimuth+=(event.clientX-previous)*.013;previous=event.clientX;draw();}});
+for(const event of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(event,()=>{dragging=false;});
+resize();
+</script></html>

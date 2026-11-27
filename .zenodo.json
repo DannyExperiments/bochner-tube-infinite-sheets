@@ -1,0 +1,21 @@
+{
+  "title": "An infinitely sheeted envelope of holomorphy for a round Bochner tube at infinity",
+  "creators": [
+    {
+      "name": "DannyExperiments"
+    }
+  ],
+  "keywords": [
+    "envelope of holomorphy",
+    "Bochner tube at infinity",
+    "schlichtness",
+    "Riemann domain",
+    "holomorphic logarithm",
+    "winding number",
+    "several complex variables"
+  ],
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "version": "1.0.0",
+  "description": "Both parts of Hazra’s Open Question 2.3 have negative answers. There is a domain in complex dimension two with a centered round disk tube type and infinitely many points of its envelope over each point of one projected circle.\n\nAn affine image of the Hazra–Porten spiral provides a lifted half-infinite circle. A polynomial has winding number one on that circle and maps the full prescribed exterior into a half-plane. Compatible logarithms glue over the seed, connector and exterior. In the envelope the logarithm gains 2πi per turn, distinguishing the points above each fixed phase.\n\nHazra–Porten’s published truncated-tube construction supplies the bounded seed. Their seed does not provide the exterior in Hazra’s later question. Bochner’s theorem gives schlichtness for a full tube. Our construction keeps the seed’s winding detectable after attaching the entire round tube tail. The smooth connected boundary belongs to the real disk tube type. The result is in complex dimension two and makes no claim about global smoothness of the domain boundary or the full envelope geometry.\n\nThe six separate files contain the PDF, TeX, bibliography, citation metadata, checksum ledger and complete versioned evidence archive. The exact rational replay checks the seed, exterior and connector inequalities and the polynomial identity on rational unit-circle points. The proof supplies the continuation and winding argument. The illustration shows the key parameter or winding geometry. The independent Codex director audit passed the analytic argument. No proof-assistant formalization or peer review is claimed.\n\nThe catalog discovery project credits ChatGPT Astra 6.2 (OpenAI). The packet has no per-run model receipt. OpenAI Codex independently audited mathematical scope and proof. GPT-6.2 Sol checked the primary literature and prepared the manuscript, replay and illustration. DannyExperiments is the project citation identity."
+}

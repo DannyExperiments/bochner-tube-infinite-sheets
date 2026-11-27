@@ -1,0 +1,84 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.08in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\setlength{\emergencystretch}{2em}
+\DeclareMathSizes{8}{8}{8}{8}
+\DeclareMathSizes{9}{9}{8}{8}
+\DeclareMathSizes{10.95}{10.95}{8}{8}
+\DeclareFontFamily{OMX}{cmex}{}
+\DeclareFontShape{OMX}{cmex}{m}{n}{<-> cmex10}{}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title[Infinite sheets for a tube at infinity]{An infinitely sheeted envelope of holomorphy for a round Bochner tube at infinity}
+\date{}
+\begin{document}
+\begin{abstract}
+We give a domain in \(\mathbb C^2\) that agrees, for all large imaginary parts, with a tube over a round disk and whose envelope of holomorphy has infinite fibers along a circle. This answers both parts of Hazra's Open Question 2.3 negatively, including the centered-ball formulation in dimension two.
+\end{abstract}
+\maketitle
+
+\section{The question}
+A Bochner tube at infinity in \(\mathbb C^n\) is a domain \(D\) with a relatively compact real domain \(G\subset\mathbb R^n\) and \(r>0\) such that
+\[
+ D\cap\{\|\operatorname{Im}z\|>r\}
+ =
+ (G+i\mathbb R^n)\cap\{\|\operatorname{Im}z\|>r\}.
+\]
+The domain \(G\) is called the tube type. Hazra's Definition 2.2 and Open Question 2.3 ask, for \(n\ge 2\) and a smooth connected boundary of \(G\), whether the envelope of holomorphy \(\mathcal E(D)\) must be finitely sheeted and whether it must be schlicht \cite{hazra}. The centered-ball case appears as Question 6.1.3 in \cite{thesis}.
+
+\begin{theorem}
+There is a Bochner tube at infinity \(D\subset\mathbb C^2\) with tube type a centered round disk and threshold \(r=3\) whose envelope has infinitely many points over each point of one circle.
+\end{theorem}
+
+\section{Bounded seed and separating polynomial}
+Let
+\[
+ X=\{(1+s e^{-\theta})(\cos\theta,\sin\theta):
+                  1/2<s<1,\ \theta>0\},\qquad
+ S=X+iB_{1/4}(0).
+\]
+The real parametrization is injective since \(e^{-2\pi}<1/2\); its Jacobian is nonzero and \(X\) is simply connected and contained in \(1<|x|<2\). Hazra--Porten's spiral construction gives a continuous curve \(p(\theta)\) in \(\mathcal E(S)\), for all sufficiently large \(\theta\), above \((\cos\theta,\sin\theta)\). This is the curve of germs in the proof of Lemma 2.3 of their arXiv version \cite{seed}. For their choice \(L=\{w_1=iw_2\}\), every point of \(L\) has \(|\operatorname{Re} w|=|\operatorname{Im} w|\), so the radius \(1/4\) lies below their transverse radius threshold.
+
+Put \(a=1/10\), \(c=(1,i)\), \(A(w)=c+aw\), and \(S'=A(S)\). On this affine image use the polynomial \(P(z)=z_1^2+z_2^2\). Direct expansion gives
+\begin{equation}\label{eq:factor}
+ P(A(w))=a(w_1+iw_2)\bigl(2+a(w_1-iw_2)\bigr).
+\end{equation}
+For \(w=u+iv\in S\), the triangle inequality yields
+\[
+ |w_1+iw_2|\ge |u|-|v|>3/4,\qquad
+ |w_1-iw_2|\le |u|+|v|<9/4.
+\]
+Thus neither factor in \eqref{eq:factor} vanishes on \(S'\), and \(P\) has a holomorphic logarithm there by simple connectivity.
+
+\section{Gluing the full exterior}
+The real and imaginary bases of \(S'\) are \(X'=(1,0)+aX\) and \(Y'=B_{1/40}((0,1))\). Choose an open disk \(G\) compactly contained in \(X'\) whose closure lies wholly in one of the half-planes \(x_2>0\) and \(x_2<0\). Such a disk exists because \(X'\) is nonempty and open. Set
+\[
+ m=\min_{\overline G}|x_2|>0,\quad K=\max_{\overline G}|x_1|,
+ \qquad 0<\delta<\min\{1/40,m/(2(K+1))\}.
+\]
+Define
+\[
+ V=G+i\{|y_1|<\delta,\ 1<y_2<4\},\qquad
+ T=G+i\{|y|>3\},\qquad D_0=S'\cup V\cup T.
+\]
+Here \(S'\cap V\) is the product of \(G\) with a nonempty convex disk--rectangle intersection. In \(V\cap T\), the imaginary coordinates satisfy \(|y_1|<\delta\) and \(\sqrt{9-y_1^2}<y_2<4\), a connected strip. The overlap \(S'\cap T\) is empty since \(|y|<41/40\) on \(S'\). Each piece is connected, including the exterior of a disk in the imaginary plane. Hence their union is a domain. Its part with \(|y|>3\) is exactly \(T\).
+
+For \(z=x+iy\in V\), the imaginary part \(2(x_1y_1+x_2y_2)\) of \(P(z)\) has the sign of \(x_2\), because \(|x_1y_1|<m/2\) and \(|x_2y_2|>m\). On \(T\) the real part \(|x|^2-|y|^2\) is negative, since \(|x|<6/5\). The two image half-planes furnish holomorphic logarithms on \(V\) and \(T\). On each nonempty overlap the two branches differ by a constant in \(2\pi i\mathbb Z\). Adjust the branch on \(V\) to agree with that on \(S'\), then the branch on \(T\) to agree with \(V\). This gives \(f\in\mathcal O(D_0)\) with \(e^f=P\).
+
+\section{Infinitely many points of each fiber}
+The inclusion \(S'\hookrightarrow D_0\) induces a map \(\mathcal E(S')\to\mathcal E(D_0)\) over \(\mathbb C^2\). In the germ construction this is restriction to the germs of functions originating on \(D_0\). Write \(\pi\) for the projection of \(\mathcal E(D_0)\). The extension \(\widetilde f\) satisfies \(e^{\widetilde f}=P\circ\pi\) by the identity theorem. Send the affine image of the lifted seed circle into \(\mathcal E(D_0)\), obtaining \(q(\theta)\) over \(z(\theta)=c+a(\cos\theta,\sin\theta)\). Equation \eqref{eq:factor} gives
+\[
+ P(z(\theta))=a e^{i\theta}(2+a e^{-i\theta}).
+\]
+The second factor lies in the open right half-plane, where its logarithm is single-valued and periodic in \(\theta\). As continuous functions of \(\theta\), \(\widetilde f(q(\theta))\) and
+\(\log a+i\theta+\log(2+a e^{-i\theta})\) differ by a constant multiple of \(2\pi i\). Their increment is therefore \(2\pi i\) per turn. The projected points at any fixed phase agree, and the distinct values of \(\widetilde f\) distinguish their lifts. This proves the asserted infinite fibers. Real translation by the negative center of \(G\) centers the disk and preserves the threshold and fiber counts.
+
+For example, at phase zero the projected point before centering is \((11/10,i)\), with \(P=21/100\). The repeated lifts above it give the arithmetic progression \(\log(21/100)+2\pi i(k_0+j)\), \(j\ge0\), for some integer \(k_0\).
+
+\section{Scope}
+The smoothness assumption applies to the real tube type. The construction uses the bounded spiral of \cite{seed} and adds the prescribed exterior using a single logarithm that distinguishes sheets after inclusion. Classical convexification of a full Bochner tube addresses a different domain. The literature scan is bounded and the analytic argument has not been formally verified or peer reviewed.
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

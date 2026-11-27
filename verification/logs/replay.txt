@@ -1,0 +1,1 @@
+PASS: 121 exact circle fixtures, polynomial value, connector and exterior margins.
