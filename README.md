@@ -1,6 +1,7 @@
 # An infinitely sheeted envelope of holomorphy for a round Bochner tube at infinity
 
 [![Repository verification](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/verify.yml) · [![Replay verification](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/replay.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/replay.yml) · [![PDF build](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/pdf.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/pdf.yml)
+[![Partial Lean verification](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/lean.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/bochner-tube-infinite-sheets/actions/workflows/lean.yml)
 [![DOI](visualization/version-doi.svg)](https://doi.org/10.5281/zenodo.24588786)
 
 Both parts of Hazra’s Open Question 2.3 have negative answers. There is a domain in complex dimension two with a centered round disk tube type and infinitely many points of its envelope over each point of one projected circle.
@@ -24,3 +25,7 @@ The exact rational replay checks the seed, exterior and connector inequalities a
 ## Citation
 
 The [citation file](CITATION.cff) gives the project citation identity and version. See [AI disclosure](AI_DISCLOSURE.md) for technical roles.
+
+## Partial Lean verification
+
+The quadratic separating polynomial factors on the affine seed; the second factor has positive real part along the circle. The explicit logarithmic trace exponentiates to the polynomial factor expression, and its values after successive full turns differ by multiples of 2πi and are pairwise distinct. The construction, continuation and identification of these lifts inside the envelope of holomorphy, including gluing the full exterior, are in the manuscript. [Formal statement and replay](formal/closing/README.md)

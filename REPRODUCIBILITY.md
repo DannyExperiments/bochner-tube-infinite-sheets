@@ -10,3 +10,5 @@ python3 verification/src/replay.py
 The exact rational replay checks the seed, exterior and connector inequalities and the polynomial identity on rational unit-circle points. The proof supplies the continuation and winding argument.
 
 See [paper build](paper/BUILD.md) for LaTeX reconstruction. Open [the illustration](visualization/index.html) in a browser. It uses no external libraries.
+
+Run `python3 formal/closing/verify.py` with the versions pinned in `formal/closing/` to replay the partial Lean proof. [Declarations and scope](formal/closing/README.md)
